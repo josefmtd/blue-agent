@@ -3,7 +3,7 @@
 # Install the dependencies
 /usr/bin/apt update
 /usr/bin/apt upgrade
-/usr/bin/apt install bluez-tools
+/usr/bin/apt install -y bluez-tools
 
 # Copy the services to systemd
 /bin/cp bluetooth.service /lib/systemd/system/bluetooth.service
