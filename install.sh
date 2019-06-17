@@ -2,7 +2,7 @@
 
 # Install the dependencies
 /usr/bin/apt update
-/usr/bin/apt upgrade
+/usr/bin/apt -y upgrade
 /usr/bin/apt install -y bluez-tools
 
 # Copy the services to systemd
@@ -17,5 +17,10 @@
 /bin/systemctl daemon-reload
 /bin/systemctl enable blue-agent.service
 /bin/systemctl start blue-agent.service
+
+# Reboot the system
+echo "Rebooting the system, press CTRL-C to cancel"
+/bin/sleep 5
+/sbin/reboot
 
 exit 0
