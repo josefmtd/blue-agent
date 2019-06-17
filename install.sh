@@ -13,6 +13,9 @@
 /bin/cp pin.conf /etc/bluetooth/pin.conf
 /bin/chmod 600 /etc/bluetooth/pin.conf
 
+# Copy the Bluez configuration file
+/bin/cp main.conf /etc/bluetooth/main.conf
+
 # Reload the systemd daemon and add the services
 /bin/systemctl daemon-reload
 /bin/systemctl enable blue-agent.service
