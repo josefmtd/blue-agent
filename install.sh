@@ -1,16 +1,18 @@
 #!/bin/bash
 
+DIR=`dirname $0`
+
 # Install the dependencies
 /usr/bin/apt update
 /usr/bin/apt -y upgrade
 /usr/bin/apt install -y bluez-tools
 
 # Copy the services to systemd
-/bin/cp bluetooth.service /lib/systemd/system/bluetooth.service
-/bin/cp blue-agent.service /etc/systemd/system/blue-agent.service
+/bin/cp "${DIR}/bluetooth.service" /lib/systemd/system/bluetooth.service
+/bin/cp "${DIR}/blue-agent.service" /etc/systemd/system/blue-agent.service
 
 # Copy the PIN configuration file
-/bin/cp pin.conf /etc/bluetooth/pin.conf
+/bin/cp "${DIR}/pin.conf" /etc/bluetooth/pin.conf
 /bin/chmod 600 /etc/bluetooth/pin.conf
 
 # Reload the systemd daemon and add the services
