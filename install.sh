@@ -11,6 +11,9 @@ DIR=`dirname $0`
 /bin/cp "${DIR}/bluetooth.service" /lib/systemd/system/bluetooth.service
 /bin/cp "${DIR}/blue-agent.service" /etc/systemd/system/blue-agent.service
 
+# Add pi to the bluetooth user group
+/usr/sbin/adduser pi bluetooth
+
 # Copy the PIN configuration file
 /bin/cp "${DIR}/pin.conf" /etc/bluetooth/pin.conf
 /bin/chmod 600 /etc/bluetooth/pin.conf
