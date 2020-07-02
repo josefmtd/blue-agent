@@ -5,8 +5,10 @@ After=bluetooth.service
 [Service]
 Type=simple
 ExecStart=/usr/bin/bt-agent -c NoInputNoOutput -p /etc/bluetooth/pin.conf
-ExecStartPre=/bin/sleep 3
-ExecStartPre=/bin/hciconfig hci0 sspmode 0
+ExecStartPre=/bin/sleep 1
+ExecStartPre=/bin/hciconfig hci0 sspmode 1
+ExecStartPre=/bin/sleep 1
+ExecStartPre=/bin/hciconfig hci0 piscan
 Restart=on-failure
 RestartSec=10
 
